@@ -86,7 +86,7 @@ end
 
 # THE EACH WITH INDEX METHOD
 
-colors = ['Red', 'Blue', 'Green', 'Yellow']
+colors = %w[Red Blue Green Yellow]
 
 colors.each_index do |color, index|
   puts "Moving on index number #{index}"
@@ -148,7 +148,7 @@ end
 
 #ITERATION WITH WHILE OR UNTIL
 
-animals = ['Lion', 'Zebra', 'Baboon', 'Cheetah']
+animals = %w[Lion Zebra Baboon Cheetah]
 
 i = 0
 until i == animals.length
@@ -159,7 +159,7 @@ end
 
 #THE BREAK KEYWORD
 
-prizes = ['Pyrite', 'Pyrite', 'Pyrite', 'Pyrite', 'Gold', 'Pyrite', 'Pyrite']
+prizes = %w[Pyrite Pyrite Pyrite Pyrite Gold Pyrite Pyrite]
 
 i = 0
 while i < prizes.length
@@ -183,3 +183,32 @@ numbs.each do |num|
     break
   end
 end
+
+# THE NEXT KEYWORD
+
+numlo = [1, 2, 3, "Hello", 5, 6, nil, 7, 8, []]
+
+# numbers.each do |num|
+#
+#   unless num.is_a?(Integer)
+#     next
+#   else
+#     puts "The square of #{num} is #{num ** 2}"
+#   end
+# end
+
+# THE REVERSE METHOD ON AN ARRAY
+
+p [1, 2, 3].reverse
+p %w[A B C].reverse
+
+# THE SORT METHOD
+
+numhi = [5, 13, 1, -2, 8]
+words = ["catepillar", "kangaroo", "apple", "zebra"]
+
+p numhi.sort.reverse
+p words.sort.reverse
+
+
+
