@@ -74,12 +74,53 @@ for num in numbers
   puts num
 end
 
-rng = 1..10
+# rng = 1..10
+#
+# rng.each do |rng_number|
+#   puts rng_numbr
+# end
+#
+# for rng_number in rng
+#   puts rng_number
+# end
 
-rng.each do |rng_number|
-  puts rng_numbr
+# THE EACH WITH INDEX METHOD
+
+colors = ["Red", "Blue", "Green", "Yellow"]
+
+colors.each_index do |color, index|
+  puts "Moving on index number #{index}"
+  puts "The current color is #{color}"
 end
 
-for rng_number in rng
-  puts rng_number
+twos = [2, 4, 6, 8]
+
+twos.each_with_index do |number, i|
+  puts "the current value is #{number} at index #{i}!"
 end
+
+
+CHALLENGE
+
+numys = [1, 2, 3, 4, 5]
+
+
+numys.each_with_index do |nums, index|
+  result = nums * index
+  sum += result
+end
+
+
+arr = [-1, 2, 1, 2, 5, 7, 3]
+
+def print_if(array)
+
+  array.each_with_index do |number, index|
+    if index > number
+      puts "this #{index} is greater than #{number}"
+      puts "The result of multiplying is #{index * number}"
+    end
+  end
+end
+
+print_if(arr)
