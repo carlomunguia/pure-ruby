@@ -99,16 +99,16 @@ twos.each_with_index do |number, i|
   puts "the current value is #{number} at index #{i}!"
 end
 
-
-CHALLENGE
-
-numys = [1, 2, 3, 4, 5]
-
-
-numys.each_with_index do |nums, index|
-  result = nums * index
-  sum += result
-end
+#
+# CHALLENGE
+#
+# numys = [1, 2, 3, 4, 5]
+#
+#
+# numys.each_with_index do |nums, index|
+#   result = nums * index
+#   sum += result
+# end
 
 
 arr = [-1, 2, 1, 2, 5, 7, 3]
@@ -124,3 +124,19 @@ def print_if(array)
 end
 
 print_if(arr)
+
+# THE MAP AND COLLECT METHODS
+
+numbers = [1, 2, 3, 4, 5]
+
+numbers.map { |number| number ** 2 }
+
+fahr_temperatures = [105, 73, 40, 18, -2]
+
+celsius_temperatures = fahr_temperatures.map do |temp|
+  minus32 = temp - 32
+  minus32 * (5.0 / 9.0)
+end
+
+p celsius_temperatures
+
