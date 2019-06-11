@@ -57,8 +57,8 @@ p odds
 
 #EACH WITHIN EACH
 
-shirts = ["striped", "plain white", "band", "plaid"]
-ties = ["polka dot", "solid color", "boring"]
+shirts = ['striped', 'plain white', 'band', 'plaid']
+ties = ['polka dot', 'solid color', 'boring']
 
 shirts.each do |shirt|
   ties.each do |tie|
@@ -86,7 +86,7 @@ end
 
 # THE EACH WITH INDEX METHOD
 
-colors = ["Red", "Blue", "Green", "Yellow"]
+colors = ['Red', 'Blue', 'Green', 'Yellow']
 
 colors.each_index do |color, index|
   puts "Moving on index number #{index}"
@@ -111,32 +111,75 @@ end
 # end
 
 
-arr = [-1, 2, 1, 2, 5, 7, 3]
-
-def print_if(array)
-
-  array.each_with_index do |number, index|
-    if index > number
-      puts "this #{index} is greater than #{number}"
-      puts "The result of multiplying is #{index * number}"
-    end
-  end
-end
-
-print_if(arr)
+# arr = [-1, 2, 1, 2, 5, 7, 3]
+# 
+# def print_if(array)
+# 
+#   array.each_with_index do |number, index|
+#     if index > number
+#       puts "this #{index} is greater than #{number}"
+#       puts "The result of multiplying is #{index * number}"
+#     end
+#   end
+# end
+# 
+# print_if(arr)
 
 # THE MAP AND COLLECT METHODS
 
-numbers = [1, 2, 3, 4, 5]
+# numbers = [1, 2, 3, 4, 5]
+# 
+# numbers.map { |number| number ** 2 }
+# 
+# fahr_temperatures = [105, 73, 40, 18, -2]
 
-numbers.map { |number| number ** 2 }
+# celsius_temperatures = fahr_temperatures.map do |temp|
+#   minus32 = temp - 32
+#   minus32 * (5.0 / 9.0)
+# end
+# 
+# p celsius_temperatures
 
-fahr_temperatures = [105, 73, 40, 18, -2]
+numbers = [3, 8, 11, 15, 89]
 
-celsius_temperatures = fahr_temperatures.map do |temp|
-  minus32 = temp - 32
-  minus32 * (5.0 / 9.0)
+def cubes(array)
+  array.map {|number| number ** 3}
 end
 
-p celsius_temperatures
+#ITERATION WITH WHILE OR UNTIL
 
+animals = ['Lion', 'Zebra', 'Baboon', 'Cheetah']
+
+i = 0
+until i == animals.length
+  puts i
+  puts animals[i]
+  i += 1
+end
+
+#THE BREAK KEYWORD
+
+prizes = ['Pyrite', 'Pyrite', 'Pyrite', 'Pyrite', 'Gold', 'Pyrite', 'Pyrite']
+
+i = 0
+while i < prizes.length
+  current = prizes[i]
+  if current == 'Gold'
+    puts 'Yay! I found Gold!'
+    break
+  else
+    puts "#{current} is not gold!"
+  end
+  i += 1
+end
+
+numbs = [1, 2, 3, 'Hello', 5, 6, 7, 8]
+
+numbs.each do |num|
+  if num.is_a?(Integer)
+    puts "The square of #{num} is #{num ** 2}"
+  else
+    puts "That is not a valid number, I'm done with this nonesense!"
+    break
+  end
+end
