@@ -62,11 +62,24 @@ ties = ["polka dot", "solid color", "boring"]
 
 shirts.each do |shirt|
   ties.each do |tie|
-   puts "OPTION: A #{shirt} and a #{tie} tie"
+    puts "OPTION: A #{shirt} and a #{tie} tie"
   end
 end
 
+#FOR LOOP
 
+numbers = [3, 5, 7]
 
+for num in numbers
+  puts num
+end
 
+rng = 1..10
 
+rng.each do |rng_number|
+  puts rng_numbr
+end
+
+for rng_number in rng
+  puts rng_number
+end
