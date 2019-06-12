@@ -186,7 +186,7 @@ end
 
 # THE NEXT KEYWORD
 
-numlo = [1, 2, 3, "Hello", 5, 6, nil, 7, 8, []]
+numlo = [1, 2, 3, 'Hello', 5, 6, nil, 7, 8, []]
 
 # numbers.each do |num|
 #
@@ -205,10 +205,95 @@ p %w[A B C].reverse
 # THE SORT METHOD
 
 numhi = [5, 13, 1, -2, 8]
-words = ["catepillar", "kangaroo", "apple", "zebra"]
+words = ['catepillar', 'kangaroo', 'apple', 'zebra']
 
 p numhi.sort.reverse
 p words.sort.reverse
+
+# CONCAT METHOD
+
+p [1, 2, 3] + [4, 5]
+
+p [1, 2, 3].concat([4, 5])
+
+a = [4, 5, 6]
+b = [7, 8, 9]
+
+def custom_contact(arr1, arr2)
+  arr2.each {|elem| arr1 << elem}
+  arr1
+end
+
+p custom_contact(a, b)
+
+# THE MAX AND MIN METHOD
+
+stock_prices = [723.99, 434.12, 84.7, 649.92]
+
+p stock_prices.max
+p stock_prices.min
+
+a = [44.7, 46.9, 99.9]
+
+def custom_max(arr)
+  arr.sort[-1]
+end
+
+def custom_min(arr)
+  arr.sort[0]
+end
+
+p custom_max(a)
+p custom_min(a)
+
+# INCLUDE METHOD
+
+yummy = [1, 2, 3, 5, 6]
+
+p yummy.include?(5)
+
+# INDEX & FIND INDEX METHODS
+
+colors = ['Red', 'Blue', 'Green', 'Red']
+
+p colors.index('Orange')
+
+# THE SELECT METHOD
+
+grades = [80, 95, 13, 76, 28, 39]
+
+matches = grades.select(&:even?)
+
+p matches
+
+words = ['level', 'selfless', 'racecar', 'dinosaur']
+
+palindromes = words.select { |word| word == word.reverse }
+
+p palindromes
+
+
+# THE REJECT METHOD
+
+animals = ['Cheetah', 'Cat', 'Lion', 'Cow']
+
+select_results = animals.select { |animal| animal.include?("c") }
+reject_results = animals.reject { |animal| animal.include?('c') }
+
+p reject_results
+p select_results
+
+# UNPACKING A MULTIDIMENSIONAL ARRAY
+
+users = [["Bob", 25, "Male"], ["Susan", 48, "Female"], ["Larry", 62, "Male"]]
+
+p users[1][2]
+
+bob, susan, larry = users
+
+p bob
+p susan
+p larry
 
 
 
