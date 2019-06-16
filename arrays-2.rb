@@ -1,4 +1,4 @@
-#REVIEW OF BLOCKS
+#REVIEW: OF BLOCKS
 
 # 3.times {|number| puts "I am currently on loop #{number}"}
 
@@ -70,7 +70,7 @@ end
 
 numbers = [3, 5, 7]
 
-for num in numbers
+numbers.each do |num|
   puts num
 end
 
@@ -205,7 +205,7 @@ p %w[A B C].reverse
 # THE SORT METHOD
 
 numhi = [5, 13, 1, -2, 8]
-words = ['catepillar', 'kangaroo', 'apple', 'zebra']
+words = %w[catepillar kangaroo apple zebra]
 
 p numhi.sort.reverse
 p words.sort.reverse
@@ -236,11 +236,11 @@ p stock_prices.min
 a = [44.7, 46.9, 99.9]
 
 def custom_max(arr)
-  arr.sort[-1]
+  arr.max
 end
 
 def custom_min(arr)
-  arr.sort[0]
+  arr.min
 end
 
 p custom_max(a)
@@ -254,7 +254,7 @@ p yummy.include?(5)
 
 # INDEX & FIND INDEX METHODS
 
-colors = ['Red', 'Blue', 'Green', 'Red']
+colors = %w[Red Blue Green Red]
 
 p colors.index('Orange')
 
@@ -266,26 +266,26 @@ matches = grades.select(&:even?)
 
 p matches
 
-words = ['level', 'selfless', 'racecar', 'dinosaur']
+words = %w[level selfless racecar dinosaur]
 
-palindromes = words.select { |word| word == word.reverse }
+palindromes = words.select {|word| word == word.reverse}
 
 p palindromes
 
 
 # THE REJECT METHOD
 
-animals = ['Cheetah', 'Cat', 'Lion', 'Cow']
+animals = %w[Cheetah Cat Lion Cow]
 
-select_results = animals.select { |animal| animal.include?("c") }
-reject_results = animals.reject { |animal| animal.include?('c') }
+select_results = animals.select {|animal| animal.include?('c')}
+reject_results = animals.reject {|animal| animal.include?('c')}
 
 p reject_results
 p select_results
 
 # UNPACKING A MULTIDIMENSIONAL ARRAY
 
-users = [["Bob", 25, "Male"], ["Susan", 48, "Female"], ["Larry", 62, "Male"]]
+users = [['Bob', 25, 'Male'], ['Susan', 48, 'Female'], ['Larry', 62, 'Male']]
 
 p users[1][2]
 
@@ -295,5 +295,14 @@ p bob
 p susan
 p larry
 
+# THE PARTITION METHOD
 
+foods = ['Steak', 'Vegetables', 'Steak Burger', 'Kale', 'Tofu', 'Tuna Steaks']
+
+good, bad = foods.partition { |food| food.include?('Steak') }
+
+p good
+p bad
+
+# EVENS AND ODDS
 
