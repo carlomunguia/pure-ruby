@@ -6,11 +6,11 @@ p sentence.split('i')
 
 words = sentence.split(' ')
 
-words.each { |word| puts word.length }
+words.each {|word| puts word.length}
 
 # ITERATING OVER STRING
 
-'Hello world'.each_char { |char| puts char }
+'Hello world'.each_char {|char| puts char}
 
 name = 'Carlo'
 
@@ -18,7 +18,7 @@ p name.split('')
 p name.chars
 
 letters = name.chars
-letters.each { |letter| puts "#{letter} is awesome!" }
+letters.each {|letter| puts "#{letter} is awesome!"}
 
 # THE JOIN METHOD
 
@@ -50,10 +50,35 @@ aardvark = 'An amazing aardvark appeared!'.count('a')
 def custom_count(string, search_characters)
 
   count = 0
-  string.each_char { |char| count += 1 if search_characters.include?(char) }
+  string.each_char {|char| count += 1 if search_characters.include?(char)}
   count
 end
 
 p custom_count("An amazing aardvark appeared", "Aa")
 
 
+# THE INDEX & RINDEX METHODS
+
+fact = "I am very handsome"
+
+p fact.index("I")
+
+p fact.rindex("e")
+
+def custom_index(string, substring)
+  nil unless string.include?(substring)
+  length = substring.length
+  string.chars.each_with_index do |char, index|
+    sequence = string[index, length]
+    return index if sequence == substring
+  end
+end
+
+p custom_index(fact, "I")
+
+# THE INSERT METHOD
+
+typo = "GeorgWashington"
+typo.insert(5,"e ")
+
+p typo
