@@ -79,6 +79,26 @@ p custom_index(fact, "I")
 # THE INSERT METHOD
 
 typo = "GeorgWashington"
-typo.insert(5,"e ")
+typo.insert(5, "e ")
 
 p typo
+
+# THE SQUEEZE METHOD
+
+sentence = "Thh aardvark jummped   ovver the fence!"
+
+puts sentence.squeeze!("h")
+
+def custom_squeeze(string)
+
+  final = ""
+  chars = string.split("")
+  chars.each_with_index do |char, index|
+    char == chars[index + 1] ? next : final << char
+    next
+  end
+  final
+end
+
+p custom_squeeze(sentence) == sentence.session
+
