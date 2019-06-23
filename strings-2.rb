@@ -100,5 +100,30 @@ def custom_squeeze(string)
   final
 end
 
-p custom_squeeze(sentence) == sentence.session
+# p custom_squeeze(sentence) == sentence.session
+
+# THE CLEAR METHOD
+
+p "blah blah blah".clear
+
+word = "goodbye"
+p word
+
+word.clear
+p word
+
+# THE DELETE METHOD
+
+puts "Hello World".delete("ldrh")
+
+def custom_delete(string, delete_characters)
+  new_string = ""
+  string.each_char do |char|
+    new_string << char unless delete_characters.include?(char)
+    new_string
+  end
+end
+
+p custom_delete("Hello world", "h")
+
 
