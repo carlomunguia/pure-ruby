@@ -50,7 +50,7 @@ p numbers
 def custom_uniq(array)
 
   final = []
-  array.each {|element| final << element unless !final.include?(element)}
+  array.each {|element| final << element unless final.include?(element)}
   final
 end
 
@@ -69,4 +69,73 @@ def custom_compact(array)
   array.each {|element| final << element unless element.nil?}
   final
 end
+
+# THE INJECT & REDUCE METHODS
+
+# result = [10, 20, 30, 40].reduce(0) do |previous, current|
+#   puts "The previous value is #{previous}"
+#   puts "The current value is #{current}"
+#   previous + current
+# end
+#
+# puts result
+#
+# breakfast = ['pancakes', 'blueberries', 'whipped cream'].reduce(1) do |morning, evening|
+#
+#   puts "i eat these things in the #{morning}"
+#   puts "i eat these things in the #{evening}"
+#   morning + evening
+# end
+#
+# p breakfast
+
+# THE FLATTEN METHOD
+
+registrations =
+    [%w[Bob David Jack],
+     %w[Rick Susan Molly],
+     %w[Yin Yang Fish]
+    ]
+p registrations.flatten
+
+# THE ZIP METHOD
+
+names = %w[ Bo Moe Joe ]
+registrations = [true, false, false]
+
+p names.zip(registrations)
+
+p [1, 2, 3].zip([4, 5, 6], %w(A B C))
+
+def custom_zip(arr1, arr2)
+
+  final = []
+  arr1.each_with_index do |value, index|
+    final << [value, arr2[index]]
+  end
+  final
+end
+
+p custom_zip(names, registrations)
+
+# THE SAMPLE METHOD
+
+flavors = %w[Chocolate Vanilla Strawberry RumRaisin Banana-Pudding]
+
+p flavors.sample(2)
+
+# MULTIPLY ARRAYS
+
+puts [1, 2, 3] * 5
+
+def custom_multiply(array, number)
+
+  result = []
+  number.times {array.each {|elem| result << (elem)}}
+  result
+
+end
+
+p custom_multiply(%w[Ruby Javascript Python], 7)
+
 
