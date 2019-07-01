@@ -43,7 +43,7 @@ multiple_pass {puts "Now I'm inside the block!"}
 
 # PROCS 1
 
-cubes = Proc.new { |number| number ** 3 }
+cubes = Proc.new {|number| number ** 3}
 
 a = [1, 2, 3, 4, 5, 6]
 b = [6, 7, 8, 9, 10]
@@ -59,9 +59,127 @@ p c_cubes
 
 currencies = [10, 20, 30, 40, 50]
 
-to_euros = Proc.new { |currency| currency * 0.95 }
+to_euros = Proc.new {|currency| currency * 0.95}
 
 p currencies.map(&to_euros)
 
+# THE BLOCK GIVEN METHOD
 
+def pass_control_on_condition
+  puts 'Inside the method'
+  if block_given?
+    yield
+    puts 'Back inside the method'
+  end
+
+  pass_control_on_condition do
+    puts "Hello from inside"
+    puts "The magical block"
+  end
+end
+
+# YIELDING WITH ARGUMENTS
+
+def speak_the_truth(name)
+  yield name if block_given?
+end
+
+speak_the_truth("Carlo") {|name| puts "#{name} is brilliant"}
+
+# CUSTOM .EACH METHOD
+
+def custom_each(array)
+
+  i = 0
+  while i < array.length
+    yield array[i]
+    i += 1
+
+  end
+end
+
+names = %w[Boris Arnold Melissa]
+numbers = [10, 20, 30]
+
+custom_each(names) do |name|
+  puts "The length of #{name} is #{name.length}!"
+end
+
+custom_each(numbers) do |number|
+  puts "The square of #{number} is #{number ** 2}"
+end
+
+# PROCS 2
+
+def greeter
+  puts "I'm inside of the greeter"
+  yield
+end
+
+phrase = Proc.new do
+  puts "Inside the proc"
+end
+
+greeter(&phrase)
+
+hi = Proc.new {puts "Hi there"}
+
+5.times(&hi)
+hi.call
+
+# RUBY METHOD AS PROC
+
+p %w(1 2 3).map(&:to_i)
+p %w[19 14 25].map(&:to_s)
+
+p [1, 2, 3, 4, 5].select(&:even?)
+p [1, 2, 3, 4, 5].reject(&:odd?)
+
+# METHODS WITH PROC PARAMETERS
+
+def talk_about(name, &myprc)
+  puts "Let me tell you about #{name}."
+  myprc.call(name)
+end
+
+good_things = Proc.new do |name|
+  puts "#{name} is a genius!"
+  puts "#{name} is a jolly good fellow"
+end
+
+bad_things = Proc.new do |name|
+  puts "#{name} is a dolt!"
+  puts "I can't stand #{name}!"
+end
+
+talk_about("Boris", &good_things)
+talk_about("Monica", &bad_things)
+
+# LAMBDAS
+squares_lambda = lambda {|number| number ** 2}
+squares_proc = Proc.new {|number| number ** 2}
+
+[1, 2, 3].map(&squares_proc)
+p squares_proc.call(5)
+
+p [1, 2, 3].map(&squares_lambda)
+p squares_lambda.call(5)
+
+some_proc = Proc.new {|name, age| "Your name is #{name}, your age is #{age}"}
+
+p some_proc.call("Boris", 25)
+p some_proc.call("Boris")
+
+some_lambda = lambda {|name, age| "Your name is #{name}, your age is #{age}"}
+
+p some_lambda.call("Boris", 25)
+
+def diet
+  status = lambda {return "You gave in"}
+  status.call
+  "You've completed the diet!"
+end
+
+result = diet
+p result
 
