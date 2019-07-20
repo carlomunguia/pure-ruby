@@ -92,3 +92,11 @@ end
 
 p word_count(sentence)
 
+
+def tipi (fire)
+
+  altar = {half_moon: sand, tipi_poles: wood
+      }
+  fire = []
+
+  fire
