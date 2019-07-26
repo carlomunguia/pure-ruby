@@ -77,6 +77,13 @@ p someday.strftime("%B %d, %Y")
 
 # THE .PARSE AND STRPTIME METHODS
 
+require 'time'
+
+puts Time.parse("2019-07-25").class
+
+puts Time.strptime("03-04-2000", "%d-%m-%Y")
+
+
 
 
 
