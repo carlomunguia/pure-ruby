@@ -6,11 +6,11 @@ p sentence.split('i')
 
 words = sentence.split(' ')
 
-words.each {|word| puts word.length}
+words.each { |word| puts word.length }
 
 # ITERATING OVER STRING
 
-'Hello world'.each_char {|char| puts char}
+'Hello world'.each_char { |char| puts char }
 
 name = 'Carlo'
 
@@ -18,7 +18,7 @@ p name.split('')
 p name.chars
 
 letters = name.chars
-letters.each {|letter| puts "#{letter} is awesome!"}
+letters.each { |letter| puts "#{letter} is awesome!" }
 
 # THE JOIN METHOD
 
@@ -50,7 +50,7 @@ aardvark = 'An amazing aardvark appeared!'.count('a')
 def custom_count(string, search_characters)
 
   count = 0
-  string.each_char {|char| count += 1 if search_characters.include?(char)}
+  string.each_char { |char| count += 1 if search_characters.include?(char) }
   count
 end
 

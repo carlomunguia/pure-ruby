@@ -15,7 +15,7 @@ p a
 
 def sum(*numbers)
   sum = 0
-  numbers.each {|num| sum += num}
+  numbers.each { |num| sum += num }
   sum
 
 end
@@ -30,7 +30,7 @@ p sum(1, 44, 55, 33)
 
 words = ["dictionary", 'refrigerator', "platypus", "microwave"]
 
-p words.find {|word| word.length > 8}
+p words.find { |word| word.length > 8 }
 
 lottery = [4, 8, 15, 16, 23, 42]
 
@@ -50,7 +50,7 @@ p numbers
 def custom_uniq(array)
 
   final = []
-  array.each {|element| final << element unless final.include?(element)}
+  array.each { |element| final << element unless final.include?(element) }
   final
 end
 
@@ -66,7 +66,7 @@ p sports.compact
 
 def custom_compact(array)
   final = []
-  array.each {|element| final << element unless element.nil?}
+  array.each { |element| final << element unless element.nil? }
   final
 end
 
@@ -131,7 +131,7 @@ puts [1, 2, 3] * 5
 def custom_multiply(array, number)
 
   result = []
-  number.times {array.each {|elem| result << (elem)}}
+  number.times { array.each { |elem| result << (elem) } }
   result
 
 end
@@ -162,7 +162,7 @@ b = [1, 4, 5]
 def custom_subtraction(arr1, arr2)
 
   final = []
-  arr1.each {|value| final << value unless arr2.include?(value)}
+  arr1.each { |value| final << value unless arr2.include?(value) }
   final
 end
 

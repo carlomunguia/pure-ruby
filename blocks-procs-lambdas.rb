@@ -1,4 +1,4 @@
-[3, 5, 7, 9].each {|num| puts num ** 2}
+[3, 5, 7, 9].each { |num| puts num ** 2 }
 #
 # evens = [2, 4, 6, 8, 10]
 #
@@ -6,7 +6,7 @@
 
 colors = %w[Red Purple Green Blue]
 
-statements = colors.map {|color| "#{color} is a great color!"}
+statements = colors.map { |color| "#{color} is a great color!" }
 
 p statements
 
@@ -23,14 +23,14 @@ def pass_control
   puts "Now I'm back inside the method!"
 end
 
-puts pass_control {puts "Now I'm inside of the block!"}
+puts pass_control { puts "Now I'm inside of the block!" }
 
 def who_am_i
   adjective = yield
   puts "I am very #{adjective}"
 end
 
-who_am_i {"charming"}
+who_am_i { "charming" }
 
 def multiple_pass
   puts "Inside the method"
@@ -39,11 +39,11 @@ def multiple_pass
   yield
 end
 
-multiple_pass {puts "Now I'm inside the block!"}
+multiple_pass { puts "Now I'm inside the block!" }
 
 # PROCS 1
 
-cubes = Proc.new {|number| number ** 3}
+cubes = Proc.new { |number| number ** 3 }
 
 a = [1, 2, 3, 4, 5, 6]
 b = [6, 7, 8, 9, 10]
@@ -59,7 +59,7 @@ p c_cubes
 
 currencies = [10, 20, 30, 40, 50]
 
-to_euros = Proc.new {|currency| currency * 0.95}
+to_euros = Proc.new { |currency| currency * 0.95 }
 
 p currencies.map(&to_euros)
 
@@ -84,7 +84,7 @@ def speak_the_truth(name)
   yield name if block_given?
 end
 
-speak_the_truth("Carlo") {|name| puts "#{name} is brilliant"}
+speak_the_truth("Carlo") { |name| puts "#{name} is brilliant" }
 
 # CUSTOM .EACH METHOD
 
@@ -122,7 +122,7 @@ end
 
 greeter(&phrase)
 
-hi = Proc.new {puts "Hi there"}
+hi = Proc.new { puts "Hi there" }
 
 5.times(&hi)
 hi.call
@@ -156,8 +156,8 @@ talk_about("Boris", &good_things)
 talk_about("Monica", &bad_things)
 
 # LAMBDAS
-squares_lambda = lambda {|number| number ** 2}
-squares_proc = Proc.new {|number| number ** 2}
+squares_lambda = lambda { |number| number ** 2 }
+squares_proc = Proc.new { |number| number ** 2 }
 
 [1, 2, 3].map(&squares_proc)
 p squares_proc.call(5)
@@ -165,17 +165,17 @@ p squares_proc.call(5)
 p [1, 2, 3].map(&squares_lambda)
 p squares_lambda.call(5)
 
-some_proc = Proc.new {|name, age| "Your name is #{name}, your age is #{age}"}
+some_proc = Proc.new { |name, age| "Your name is #{name}, your age is #{age}" }
 
 p some_proc.call("Boris", 25)
 p some_proc.call("Boris")
 
-some_lambda = lambda {|name, age| "Your name is #{name}, your age is #{age}"}
+some_lambda = lambda { |name, age| "Your name is #{name}, your age is #{age}" }
 
 p some_lambda.call("Boris", 25)
 
 def diet
-  status = lambda {return "You gave in"}
+  status = lambda { return "You gave in" }
   status.call
   "You've completed the diet!"
 end
@@ -203,7 +203,7 @@ end
 
 
 to_pesos = lambda { |dollars| dollars * 20.67 }
-to_euros  = lambda { |dollars| dollars * 0.95 }
+to_euros = lambda { |dollars| dollars * 0.95 }
 to_rupees = lambda { |dollars| dollars * 68.13 }
 
 p convert(1000, to_euros)

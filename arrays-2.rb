@@ -21,7 +21,7 @@ end
 
 names = %w[Bio Cio Sio]
 
-names.each {|name| puts name.upcase}
+names.each { |name| puts name.upcase }
 
 [1, 2, 3, 4, 5].each do |num|
   square = num * num
@@ -50,7 +50,7 @@ fives.each do |number|
   end
 end
 
-fives.each {|number| number.even? ? evens << number : odds << number}
+fives.each { |number| number.even? ? evens << number : odds << number }
 
 p evens
 p odds
@@ -143,7 +143,7 @@ end
 numbers = [3, 8, 11, 15, 89]
 
 def cubes(array)
-  array.map {|number| number ** 3}
+  array.map { |number| number ** 3 }
 end
 
 #ITERATION WITH WHILE OR UNTIL
@@ -220,7 +220,7 @@ a = [4, 5, 6]
 b = [7, 8, 9]
 
 def custom_contact(arr1, arr2)
-  arr2.each {|elem| arr1 << elem}
+  arr2.each { |elem| arr1 << elem }
   arr1
 end
 
@@ -268,7 +268,7 @@ p matches
 
 words = %w[level selfless racecar dinosaur]
 
-palindromes = words.select {|word| word == word.reverse}
+palindromes = words.select { |word| word == word.reverse }
 
 p palindromes
 
@@ -277,8 +277,8 @@ p palindromes
 
 animals = %w[Cheetah Cat Lion Cow]
 
-select_results = animals.select {|animal| animal.include?('c')}
-reject_results = animals.reject {|animal| animal.include?('c')}
+select_results = animals.select { |animal| animal.include?('c') }
+reject_results = animals.reject { |animal| animal.include?('c') }
 
 p reject_results
 p select_results
