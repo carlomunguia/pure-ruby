@@ -164,6 +164,7 @@ def custom_subtraction(arr1, arr2)
   final = []
   arr1.each { |value| final << value unless arr2.include?(value) }
   final
+
 end
 
 p custom_subtraction(a, b)
