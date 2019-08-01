@@ -18,6 +18,7 @@ end
 
 phrase = "The Ruby Programming Language is so dope!"
 
+
 puts phrase.upcase.include?("Ruby")
 
 def custom_include? (string, substring)
@@ -85,8 +86,11 @@ puts "(444)555-6666".gsub(/[-\s\(\)]/, "")
 numbers.gsub(/[-\s(\)]/, "")
 
 
+aphex_albums = %w[RDJ-Album Selected-Ambient-Works-1 Drukqs Windowlicker]
 
-
+aphex_albums.each do |afx|
+  puts "These are albums by Aphex twin: #{afx}"
+end
 
 
 
