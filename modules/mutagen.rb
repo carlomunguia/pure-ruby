@@ -6,6 +6,10 @@ end
 
 class Bookstore
   include Purchasable
+
+  def purchase(item)
+    "You bought a copy of #{item} at the bookstore!!"
+  end
 end
 
 class Supermarket
@@ -13,16 +17,22 @@ class Supermarket
 end
 
 class Cornermart < Supermarket
+  def purchase(item)
+    "Yay! This is such a dope #{item} from your cornermart!"
+  end
 end
 
-barnes_and_noble = Bookstore.new
-p barnes_and_noble.purchase("Atlas Dabbed")
+p Bookstore.ancestors
+
+bn = Bookstore.new
+p bn.purchase("1984")
+
+p Supermarket.ancestors
 
 shoprite = Supermarket.new
-p shoprite.purchase("Ice Cream Dream")
+p shoprite.purchase("Boo Berry")
+
+p Cornermart.ancestors
 
 quickstop = Cornermart.new
-p quickstop.purchase("Grape Shark")
-
-
-
+p quickstop.purchase("Airhead Xtremes")
