@@ -27,3 +27,4 @@ silver = OlympicMedal.new("Silver", 10)
 gold = OlympicMedal.new("Gold", 3)
 
 p bronze
+
