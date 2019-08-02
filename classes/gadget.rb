@@ -1,6 +1,5 @@
 class Gadget
 
-  attr_writer :password
   attr_reader :production_number
   attr_accessor :username
 
@@ -15,40 +14,25 @@ class Gadget
      It is made from the #{self.class} and it has the ID #{self.object_id}"
   end
 
-  private
-
-  def generate_production_number
-    start_digits = rand(10000..99999)
-    end_digits = rand(10000..99999)
-    alphabet = ("A".."Z").to_a
-    middle_digits = "2019"
-    5.times { middle_digits << alphabet.sample }
-    "#{start_digits}-#{middle_digits}-#{end_digits}"
+  def password=(new_password)
+    @password = new_password if validate_password(new_password)
   end
 end
 
-phone = Gadget.new("user", "password")
-p phone.generate_production_number
+private
 
+def generate_production_number
+  start_digits = rand(10000..99999)
+  end_digits = rand(10000..99999)
+  alphabet = ("A".."Z").to_a
+  middle_digits = "2019"
+  5.times { middle_digits << alphabet.sample }
+  "#{start_digits}-#{middle_digits}-#{end_digits}"
+end
 
+def validate_password(new_password)
+  new_password.is_a?(String) && new_password.length >= 6 && new_password =~ /\d/
+end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+phone = Gadget.new("rubygod102", "programming123")
 
