@@ -10,6 +10,9 @@ class Bicycle
     @@count
   end
 
+  def test
+  end
+
   def maker
     @@maker
   end
