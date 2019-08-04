@@ -14,22 +14,24 @@ class Employee
 end
 
 class Manager < Employee
+  def yell
+    "Who is the boss? I am the BOSS!?!"
+  end
 end
 
 class Worker < Employee
+  def clock_in(time)
+    "Starting my shift at #{time}"
+  end
+
+  def yell
+    "I'm working! I'm working!!"
+  end
 end
 
-shugeru = Manager.new("Bob", 48)
-iwata = Worker.new("Torres", 36)
+shugito = Manager.new("Shugito", 48)
+iwata = Worker.new("Iwata", 36)
 
-p shugeru.class
-p iwata.introduce
-
-puts Manager.superclass
-puts Worker.superclass
-
-p Worker < Employee
-p Worker < Kernel
-p Worker < BasicObject
-
-p Object < Manager
+p shugito.yell
+p iwata.yell
+p iwata.clock_in(430)
