@@ -17,6 +17,10 @@ class Manager < Employee
   def yell
     "Who is the boss? I am the BOSS!?!"
   end
+
+  def introduce
+    "My name is #{name} and I'm a manager! Whoooo-hooo!"
+  end
 end
 
 class Worker < Employee
@@ -32,6 +36,10 @@ end
 shugito = Manager.new("Shugito", 48)
 iwata = Worker.new("Iwata", 36)
 
-p shugito.yell
-p iwata.yell
-p iwata.clock_in(430)
+sally = Manager.new("Sally", 43)
+p sally.introduce
+
+bob = Worker.new("Bob", 32)
+p bob.introduce
+
+
