@@ -9,37 +9,29 @@ class Employee
   end
 
   def introduce
-    "Hello human my name is #{name} and I am #{age} years old"
+    "Hello HUMAN! My name is #{name} and I am #{age} years old"
   end
 end
 
 class Manager < Employee
+
+  attr_reader :rank
+
+  def initialize(name, age, rank)
+    super(name, age)
+    @rank = rank
+  end
+
   def yell
     "Who is the boss? I am the BOSS!?!"
   end
 
   def introduce
-    "My name is #{name} and I'm a manager! Whoooo-hooo!"
+    result = super
+    result += " - I'm also a manager!"
   end
 end
 
-class Worker < Employee
-  def clock_in(time)
-    "Starting my shift at #{time}"
-  end
-
-  def yell
-    "I'm working! I'm working!!"
-  end
-end
-
-shugito = Manager.new("Shugito", 48)
-iwata = Worker.new("Iwata", 36)
-
-sally = Manager.new("Sally", 43)
+sally = Manager.new("Sally", 42, "Senior Vice President")
+p sally.age
 p sally.introduce
-
-bob = Worker.new("Bob", 32)
-p bob.introduce
-
-
